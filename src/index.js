@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  const date = new Date(timestamp);
+  const date = new Date(timestamp * 1000);
   let hour = date.getHours();
   let minutes = date.getMinutes();
   if (hour > 10) {
@@ -23,7 +23,7 @@ function formatDate(timestamp) {
 }
 
 let apiKey = "e450bc345a80a08ada69fd5c714d871d";
-const city = "paris";
+const city = "tehran";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 function showTemperature(res) {
