@@ -11,17 +11,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/styles.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
-          <div class="section1">
-            <h1 class="city-Name">New york</h1>
+          <div class="search-section"></div>
+          <div class="city-section">
+            <h1 class="cityName">New york</h1>
             <ul>
-              <li class="date-time">friday 05:00</li>
-              <li class="status">clear</li>
+              <li class="date">Friday 05:00</li>
+              <li class="status">Clear</li>
             </ul>
           </div>
           <div class="row">
@@ -40,9 +42,9 @@
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipition: 0%</li>
-                <li>Humidity: 75%</li>
-                <li>wind: 2km/h</li>
+                <!-- <li>Precipition: <span class="precipition">0%</span></li> -->
+                <li>Humidity: <span class="humidity">75%</span></li>
+                <li>wind: <span class="wind">2</span>km/h</li>
               </ul>
             </div>
           </div>
@@ -55,5 +57,7 @@
         >
       </div>
     </div>
+
+    <script src="./src/index.js"></script>
   </body>
 </html>
