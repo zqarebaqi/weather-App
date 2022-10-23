@@ -1,7 +1,7 @@
 body {
   font-family: arial, sans-serif;
   background-image: url("../img/4853433.jpg");
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -33,6 +33,7 @@ li::first-letter {
 
 .form-control {
   background-color: transparent;
+  color: rgb(50, 25, 79) !important;
 }
 .form-control::placeholder {
   color: rgb(50, 25, 79) !important;
