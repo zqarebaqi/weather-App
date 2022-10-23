@@ -25,6 +25,56 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function showForecast(res) {
+  let forecast = res.data.daily;
+  let forecastElement = document.querySelector("#forecast-section");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
+                    <div class="forecast-date">${formatDay(
+                      forecastDay.dt
+                    )}</div>
+          
+<img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+
+                    <div class="forecast-temprature">
+                      <span class="forecast-temp-max">${Math.round(
+                        forecastDay.temp.max
+                      )}°</span
+                      ><span class="forecast-temp-min">${Math.round(
+                        forecastDay.temp.min
+                      )}°</span>
+                    </div>
+                  </div>
+                `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "e450bc345a80a08ada69fd5c714d871d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showTemperature(res) {
   let cityElement = document.querySelector(".cityName");
   let tempElement = document.querySelector("#temperature");
@@ -45,6 +95,7 @@ function showTemperature(res) {
     `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
   );
   imageElement.setAttribute("alt", res.data.weather[0].description);
+  getForecast(res.data.coord);
 }
 
 //////////////////////////
