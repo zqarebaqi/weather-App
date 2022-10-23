@@ -18,7 +18,27 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
-          <div class="search-section"></div>
+          <form>
+            <div class="row mb-5">
+              <div class="col-9">
+                <input
+                  type="text"
+                  placeholder="Type a city..."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
+
           <div class="city-section">
             <h1 class="cityName">New york</h1>
             <ul>

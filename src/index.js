@@ -25,10 +25,6 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
-let apiKey = "e450bc345a80a08ada69fd5c714d871d";
-const city = "london";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 function showTemperature(res) {
   let cityElement = document.querySelector(".cityName");
   let tempElement = document.querySelector("#temperature");
@@ -51,4 +47,21 @@ function showTemperature(res) {
   imageElement.setAttribute("alt", res.data.weather[0].description);
 }
 
-axios.get(apiUrl).then(showTemperature);
+//////////////////////////
+
+function searchFor(city) {
+  let apiKey = "e450bc345a80a08ada69fd5c714d871d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  let inputCityElement = document.querySelector("#city-input");
+  searchFor(inputCityElement.value);
+}
+
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
+
+searchFor("Tehran");
