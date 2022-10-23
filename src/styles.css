@@ -1,5 +1,9 @@
 body {
   font-family: arial, sans-serif;
+  background-image: url("../img/4853433.jpg");
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  background-size: cover;
 }
 
 h1 {
@@ -27,17 +31,24 @@ li::first-letter {
   text-transform: capitalize;
 }
 
+.form-control {
+  background-color: transparent;
+}
+.form-control::placeholder {
+  color: rgb(50, 25, 79) !important;
+}
 .weather-app {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
   border: 1px solid #dadde1;
-  border-radius: 5px;
+  border-radius: 15px;
+  background-color: #fffdfb;
 }
 
 .weather-app-wrapper {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 50px auto;
 }
 
 .city-section {
@@ -90,4 +101,19 @@ li::first-letter {
 
 .forecast-temp-min {
   opacity: 0.5;
+}
+
+/* //////// */
+.button {
+  background: transparent;
+  color: rgb(50, 25, 79);
+  border-color: rgb(50, 25, 79);
+}
+
+.button:hover,
+.button:active,
+.button:focus-visible {
+  background-color: rgb(50, 25, 79) !important ;
+  border: rgb(50, 25, 79) !important;
+  color: #fff;
 }
