@@ -2,7 +2,7 @@ function formatDate(timestamp) {
   const date = new Date(timestamp * 1000);
   let hour = date.getHours();
   let minutes = date.getMinutes();
-  if (hour > 10) {
+  if (hour < 10) {
     hour = `0${hour}`;
   }
 
